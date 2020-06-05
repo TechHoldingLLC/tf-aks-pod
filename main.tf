@@ -49,12 +49,12 @@ resource "kubernetes_deployment" "pod" {
             container_port = var.ports.container
           }
 
-          dynamic "tag" {
+          dynamic "env" {
             for_each = var.image_env
 
             content {
-              key   = tag.key
-              value = tag.value
+              key   = env.key
+              value = env.value
             }
           }
         }
