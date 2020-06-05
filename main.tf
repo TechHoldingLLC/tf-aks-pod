@@ -53,7 +53,7 @@ resource "kubernetes_deployment" "pod" {
             for_each = var.image_env
 
             content {
-              key   = env.key
+              name  = env.key
               value = env.value
             }
           }
