@@ -55,7 +55,7 @@ resource "kubernetes_deployment" "pod" {
           image_pull_policy = var.image_pull_policy
 
           port {
-            container_port = var.ports.container
+            container_port = each.value.ports.container
           }
 
           dynamic "env" {
