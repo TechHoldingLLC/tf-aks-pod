@@ -5,3 +5,7 @@ output "pods" {
 output "svc" {
   value = kubernetes_service.svc
 }
+
+output "vars" {
+  value = var.versions
+}

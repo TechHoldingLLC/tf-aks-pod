@@ -4,13 +4,13 @@ variable "name" {
 
 variable "versions" {
   type = map(object({
-    replicas = number
+    img_version = string
+    replicas    = number
+    envvars     = map(string)
     ports = object({
       container = number
       service   = number
     })
-    img_version = string
-    img_env     = object({})
   }))
 }
 
