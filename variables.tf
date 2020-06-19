@@ -1,27 +1,24 @@
 variable "name" {
   type = string
 }
-variable "replicas" {
-  type    = number
-  default = 1
+
+variable "versions" {
+  type = map(object({
+    replicas = number
+    ports = object({
+      container = number
+      service   = number
+    })
+    img_version = string
+    img_env     = object({})
+  }))
 }
-variable "ports" {
-  type = object({
-    container = number
-    service   = number
-  })
-  default = {
-    container = 8080
-    service   = 80
-  }
-}
+
 variable "image" {
   type = string
 }
+
 variable "image_pull_policy" {
   type    = string
-  default = "IfNotPresent"
-}
-variable "image_env" {
-  type = object({})
+  default = "Always"
 }
