@@ -59,12 +59,12 @@ resource "kubernetes_deployment" "pod" {
           }
 
           env {
-            name = "PORT"
+            name  = "PORT"
             value = each.value.ports.container
           }
 
           dynamic "env" {
-            for_each = each.value.img_env
+            for_each = each.value.envvars
 
             content {
               name  = env.key
