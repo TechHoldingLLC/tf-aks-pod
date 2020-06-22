@@ -7,6 +7,7 @@ variable "versions" {
     img_version = string
     replicas    = number
     envvars     = map(string)
+    secrets     = map(map(string))
     ports = object({
       container = number
       service   = number

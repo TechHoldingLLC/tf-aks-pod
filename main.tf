@@ -71,6 +71,20 @@ resource "kubernetes_deployment" "pod" {
               value = env.value
             }
           }
+
+          dynamic "env" {
+            for_each = each.value.secrets
+
+            content {
+              name = env.key
+              value_from {
+                secret_key_ref {
+                  name = env.value.name
+                  key  = env.value.key
+                }
+              }
+            }
+          }
         }
       }
     }
