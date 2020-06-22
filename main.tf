@@ -80,7 +80,7 @@ resource "kubernetes_deployment" "pod" {
               value_from {
                 secret_key_ref {
                   name = env.value.name
-                  key  = env.valye.key
+                  key  = env.value.key
                 }
               }
             }
