@@ -1,7 +1,7 @@
 ## How to use the module
 ```hcl
 module "my_k8s_pod" {
-  source = "github.com/TechHoldingLLC/tf-aks-pod?ref=v1.1.0"
+  source = "github.com/TechHoldingLLC/tf-aks-pod?ref=v1.2.0"
 
   name              = var.images.helloworld.name
   image             = var.images.helloworld.image
@@ -23,6 +23,7 @@ images = {
         envvars = {
           APP_VERSION = 1
         }
+        secrets = {}
         ports = {
           container = 8080
           service = 80
@@ -34,6 +35,12 @@ images = {
         envvars = {
           TEST = true
           APP_VERSION = 2
+        }
+        secrets = {
+          SECRET_WORD = {
+            name = "my-aks-secret"
+            key = "word"
+          }
         }
         ports = {
           container = 5000
