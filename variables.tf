@@ -23,3 +23,7 @@ variable "image_pull_policy" {
   type    = string
   default = "Always"
 }
+
+variable "last_commit_sha" {
+  type = string
+}

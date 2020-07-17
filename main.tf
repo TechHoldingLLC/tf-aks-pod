@@ -45,6 +45,7 @@ resource "kubernetes_deployment" "pod" {
         labels = {
           app     = var.name
           version = each.key
+          last_commit = var.last_commit_sha
         }
       }
 
