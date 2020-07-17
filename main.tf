@@ -43,8 +43,8 @@ resource "kubernetes_deployment" "pod" {
     template {
       metadata {
         labels = {
-          app     = var.name
-          version = each.key
+          app         = var.name
+          version     = each.key
           last_commit = var.last_commit_sha
         }
       }
